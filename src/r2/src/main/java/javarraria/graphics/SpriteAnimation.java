@@ -1,12 +1,10 @@
 package javarraria.graphics;
 
+import java.awt.image.BufferedImage;
+
 public class SpriteAnimation extends ArrayList<BufferedImage> {
   public enum RepeatType {
     STOP,LOOP,REVERSE;
-  
-    private RepeatType() {
-      
-    }
   }
 
   private RepeatType repeatType;
@@ -20,5 +18,9 @@ public class SpriteAnimation extends ArrayList<BufferedImage> {
       else if (repeatType == RepeatType.LOOP) index -= size();
       else if (repeatType == RepeatType.REVERSE) {index = size()-2;incr=-incr;}
     }
+  }
+  
+  public BufferedImage draw() {
+    return get(index);
   }
 }
